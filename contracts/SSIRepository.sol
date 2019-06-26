@@ -14,7 +14,7 @@ contract SSIRepository {
 
     mapping(string => string) SsiRepo;
 
-    function registerBankSsi(string memory key, string memory currency, string memory bankName, string memory city, string memory bankAccount, string memory bankCode)
+    function RegisterBankSsi(string memory key, string memory currency, string memory bankName, string memory city, string memory bankAccount, string memory bankCode)
     {
         Ssi memory newSsi;
         newSsi.currency = currency;
@@ -26,17 +26,12 @@ contract SSIRepository {
         SsiRepo[key] = newSsi;
     }
 
-
-    function RegisterBankPublicKey(string memory bankName) public {
-        PublicKeys[bankName] = string(abi.encodePacked(bankName, suffix));
-    }
-
-    function GetPublicKeyFor(string memory bankName) public returns (string memory)    {
-        return PublicKeys[bankName];
+    function GetSsiFor(string memory key) public returns (string memory)    {
+        return SsiRepo[key];
     }
 
     function Description() public returns (string memory)    {
-        return "This contract will provide public keys for the registered banks.";
+        return "This contract will provide SSI for the bank key lookup.";
     }
 }
 
