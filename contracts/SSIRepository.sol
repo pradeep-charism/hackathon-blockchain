@@ -40,17 +40,14 @@ contract SSIRepository {
 
 
 /*
-var s
-BanksPublicKeysRepo.deployed().then(function (deployed) {s=deployed;});
-s.RegisterBankPublicKey("JP Morgan");
-s.RegisterBankPublicKey("Credit Suisse");
-s.RegisterBankPublicKey("Goldman Sachs");
-s.RegisterBankPublicKey("Wells Fargo");
-s.RegisterBankPublicKey("Standard Chartered");
+var ssi
+SSIRepository.deployed().then(function (deployed) {ssi=deployed;});
+ssi.RegisterBankSsi("KEY-1", "USD", "JP Morgan", "NY", "USD-NY-001", "USDJPMNYXXX");
+ssi.RegisterBankSsi("KEY-2", "SGD", "Credit Suisse", "SG", "SGD-SG-001", "SGDCSSGXXX");
+ssi.RegisterBankSsi("KEY-3", "GBP", "Standard Chartered", "LON", "GBP-LON-001", "GBPSCBLONXXX");
 
-s.GetPublicKeyFor.call("JP Morgan");
-s.GetPublicKeyFor.call("Goldman Sachs");
-
+ssi.GetSsiFor.call("Key-1");
+ssi.GetSsiFor.call("Key-3");
 
 s.Description.call();
 
