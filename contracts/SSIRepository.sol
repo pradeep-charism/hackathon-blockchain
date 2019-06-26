@@ -12,10 +12,9 @@ contract SSIRepository {
         string bankCode;
     }
 
-    mapping(string => string) SsiRepo;
+    mapping(string => Ssi) SsiRepo;
 
-    function RegisterBankSsi(string memory key, string memory currency, string memory bankName, string memory city, string memory bankAccount, string memory bankCode)
-    {
+    function RegisterBankSsi(string memory key, string memory currency, string memory bankName, string memory city, string memory bankAccount, string memory bankCode) public {
         Ssi memory newSsi;
         newSsi.currency = currency;
         newSsi.bankName = bankName;
@@ -26,8 +25,8 @@ contract SSIRepository {
         SsiRepo[key] = newSsi;
     }
 
-    function GetSsiFor(string memory key) public returns (string memory)    {
-        return SsiRepo[key];
+    function GetSsiFor(string memory key) public returns (string memory, string memory, string memory, string memory, string memory)    {
+        return (SsiRepo[key].currency, SsiRepo[key].bankName, SsiRepo[key].city, SsiRepo[key].bankAccount, SsiRepo[key].bankCode);
     }
 
     function Description() public returns (string memory)    {
@@ -46,8 +45,8 @@ ssi.RegisterBankSsi("KEY-1", "USD", "JP Morgan", "NY", "USD-NY-001", "USDJPMNYXX
 ssi.RegisterBankSsi("KEY-2", "SGD", "Credit Suisse", "SG", "SGD-SG-001", "SGDCSSGXXX");
 ssi.RegisterBankSsi("KEY-3", "GBP", "Standard Chartered", "LON", "GBP-LON-001", "GBPSCBLONXXX");
 
-ssi.GetSsiFor.call("Key-1");
-ssi.GetSsiFor.call("Key-3");
+ssi.GetSsiFor.call("KEY-1");
+ssi.GetSsiFor.call("KEY-3");
 
 s.Description.call();
 
