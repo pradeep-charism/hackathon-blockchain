@@ -32,6 +32,11 @@ s.RegisterBankPublicKey("Credit Suisse");
 s.RegisterBankPublicKey("Goldman Sachs");
 s.RegisterBankPublicKey("Wells Fargo");
 s.RegisterBankPublicKey("Standard Chartered");
+
 s.GetPublicKeyFor.call("JP Morgan");
+s.GetPublicKeyFor.call("Goldman Sachs");
+
+
+s.Description.call();
 
 */
