@@ -1,5 +1,4 @@
-var MyGame = artifacts.require("./SsiService.sol");
+var ssiService = artifacts.require("./SsiService.sol");
 module.exports = function(deployer) {
-
-    deployer.deploy(MyGame);
+    deployer.deploy(ssiService);
   };
