@@ -17,12 +17,12 @@ contract BankPaymentsContract {
 
     mapping(string => Ssi) SsiRepo;
 
-    function PayBank(string memory correspondent, string memory beneficiary, int quantity, int amount, string memory currency) public returns (string memory, string memory, int, int, string memory, string memory, string memory, string memory){
+    function PayBank(string memory correspondent, string memory beneficiary, string memory amount, string memory currency) public returns (string memory, string memory, string memory, string memory, string memory, string memory, string memory){
         string memory bankA = GetPublicKeyFor(correspondent);
         string memory bankB = GetPublicKeyFor(beneficiary);
         string memory ssiKey = string(abi.encodePacked(bankA, ":", bankB, ":", currency));
 
-        return (correspondent, beneficiary, quantity, amount, SsiRepo[ssiKey].currency, SsiRepo[ssiKey].city, SsiRepo[ssiKey].accountNumber, SsiRepo[ssiKey].swiftId);
+        return (correspondent, beneficiary, amount, SsiRepo[ssiKey].currency, SsiRepo[ssiKey].city, SsiRepo[ssiKey].accountNumber, SsiRepo[ssiKey].swiftId);
     }
 
     function RegisterBankSsi(string memory key, string memory currency, string memory correspondentBankName, string memory city, string memory accountNumber, string memory swiftId) public {
@@ -67,6 +67,10 @@ BankPaymentsContract.deployed().then(function (deployed) {ssi=deployed;});
 ssi.RegisterBankPublicKey("JP MORGAN");
 ssi.RegisterBankPublicKey("WELLS FARGO");
 ssi.RegisterBankSsi("WELLS FARGO->PUBLIC_KEY:JP MORGAN->PUBLIC_KEY:USD", "USD", "JP Morgan", "New York", "USD-NY-001", "USDJPMNYXXX");
+
+ssi.PayBank.call("WELLS FARGO", "JP MORGAN", "10", "USD");
+
+
 
 var ssi
 BankPaymentsContract.deployed().then(function (deployed) {ssi=deployed;});
