@@ -1,4 +1,4 @@
-var HelloWorld = artifacts.require("./SSIRepository.sol");
+var HelloWorld = artifacts.require("./BankPaymentsContract.sol");
 module.exports = function(deployer) {
     deployer.deploy(HelloWorld);
   };

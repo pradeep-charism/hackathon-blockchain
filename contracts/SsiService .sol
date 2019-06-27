@@ -12,13 +12,13 @@ contract SsiService
 {
     function LookupSsi(string memory name) public returns (string memory, string memory, string memory, string memory, string memory)
     {
-        SsiStore store = SsiStore(0xEd27042914B46ea48F1433FA026E3f67aB7408a2);
+        SsiStore store = SsiStore(0x4eA2702A084baA5739Ac51a485a4FFEE617d5D3B);
         return store.GetSsiFor(name);
     }
 
     function LookupPublicKey(string memory name) public returns (string memory)
     {
-        PublicKeysStore store = PublicKeysStore(0xEd27042914B46ea48F1433FA026E3f67aB7408a2);
+        PublicKeysStore store = PublicKeysStore(0x131F110145a704E028BCa7B85EAE33E32f94097C);
         return store.GetPublicKeyFor(name);
     }
 }
