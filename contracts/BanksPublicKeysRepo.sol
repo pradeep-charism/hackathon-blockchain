@@ -27,14 +27,17 @@ contract BanksPublicKeysRepo
 /*
 var s
 BanksPublicKeysRepo.deployed().then(function (deployed) {s=deployed;});
-s.RegisterBankPublicKey("JP Morgan");
-s.RegisterBankPublicKey("Credit Suisse");
-s.RegisterBankPublicKey("Goldman Sachs");
-s.RegisterBankPublicKey("Wells Fargo");
-s.RegisterBankPublicKey("Standard Chartered");
+s.RegisterBankPublicKey("JP MORGAN");
+s.RegisterBankPublicKey("CREDIT SUISSE");
+s.RegisterBankPublicKey("GOLDMAN SACHS");
+s.RegisterBankPublicKey("WELLS FARGO");
+s.RegisterBankPublicKey("BANK OF CHINA");
 
-s.GetPublicKeyFor.call("JP Morgan");
-s.GetPublicKeyFor.call("Goldman Sachs");
+s.GetPublicKeyFor.call("JP MORGAN");
+s.GetPublicKeyFor.call("CREDIT SUISSE");
+s.GetPublicKeyFor.call("GOLDMAN SACHS");
+s.GetPublicKeyFor.call("WELLS FARGO");
+s.GetPublicKeyFor.call("BANK OF CHINA");
 
 
 s.Description.call();

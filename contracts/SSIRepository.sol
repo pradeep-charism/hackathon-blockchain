@@ -6,27 +6,27 @@ contract SSIRepository {
 
     struct Ssi {
         string currency;
-        string bankName;
+        string correspondentBankName;
         string city;
-        string bankAccount;
-        string bankCode;
+        string accountNumber;
+        string swiftId;
     }
 
     mapping(string => Ssi) SsiRepo;
 
-    function RegisterBankSsi(string memory key, string memory currency, string memory bankName, string memory city, string memory bankAccount, string memory bankCode) public {
+    function RegisterBankSsi(string memory key, string memory currency, string memory correspondentBankName, string memory city, string memory accountNumber, string memory swiftId) public {
         Ssi memory newSsi;
         newSsi.currency = currency;
-        newSsi.bankName = bankName;
+        newSsi.correspondentBankName = correspondentBankName;
         newSsi.city = city;
-        newSsi.bankAccount = bankAccount;
-        newSsi.bankCode = bankCode;
+        newSsi.accountNumber = accountNumber;
+        newSsi.swiftId = swiftId;
 
         SsiRepo[key] = newSsi;
     }
 
     function GetSsiFor(string memory key) public returns (string memory, string memory, string memory, string memory, string memory)    {
-        return (SsiRepo[key].currency, SsiRepo[key].bankName, SsiRepo[key].city, SsiRepo[key].bankAccount, SsiRepo[key].bankCode);
+        return (SsiRepo[key].currency, SsiRepo[key].correspondentBankName, SsiRepo[key].city, SsiRepo[key].accountNumber, SsiRepo[key].swiftId);
     }
 
     function Description() public returns (string memory)    {
@@ -41,12 +41,13 @@ contract SSIRepository {
 /*
 var ssi
 SSIRepository.deployed().then(function (deployed) {ssi=deployed;});
-ssi.RegisterBankSsi("KEY-1", "USD", "JP Morgan", "NY", "USD-NY-001", "USDJPMNYXXX");
-ssi.RegisterBankSsi("KEY-2", "SGD", "Credit Suisse", "SG", "SGD-SG-001", "SGDCSSGXXX");
-ssi.RegisterBankSsi("KEY-3", "GBP", "Standard Chartered", "LON", "GBP-LON-001", "GBPSCBLONXXX");
+ssi.RegisterBankSsi("WELLS FARGO->PUBLIC_KEY:JP MORGAN->PUBLIC_KEY:USD", "USD", "JP Morgan", "New York", "USD-NY-001", "USDJPMNYXXX");
+ssi.RegisterBankSsi("WELLS FARGO->PUBLIC_KEY:CREDIT SUISSE->PUBLIC_KEY:CHF", "CHF", "Credit Suisse", "Zurich", "CHF-CS-ZUR-001", "CHFCSZURXXX");
+ssi.RegisterBankSsi("WELLS FARGO->PUBLIC_KEY:BANK OF CHINA->PUBLIC_KEY:CNH", "CNH", "Bank of China", "Hong kong", "CNH-BOC-HK-001", "CNHBOCHKXXX");
 
-ssi.GetSsiFor.call("KEY-1");
-ssi.GetSsiFor.call("KEY-3");
+ssi.GetSsiFor.call("WELLS FARGO->PUBLIC_KEY:JP MORGAN->PUBLIC_KEY:USD");
+ssi.GetSsiFor.call("WELLS FARGO->PUBLIC_KEY:CREDIT SUISSE->PUBLIC_KEY:CHF");
+ssi.GetSsiFor.call("WELLS FARGO->PUBLIC_KEY:BANK OF CHINA->PUBLIC_KEY:CNH");
 
 s.Description.call();
 
