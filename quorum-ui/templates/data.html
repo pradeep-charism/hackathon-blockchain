@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <title>Upload SSI File</title>
+  </head>
+  <body>
+  <ul class="nav nav-tabs bg-primary">
+		  <li class="nav-item">
+			<a class="nav-link" href="/">Bank Transfer</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="index.html">Transactions</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link active" href="/upload">Upload SSI</a>
+		  </li>
+		</ul>
+	<h6>SSI Details:</h6>
+	<table class="table">
+	  <thead>
+		<tr>
+		  <tr><th scope="col">Currency</th><th scope="col">Correspondent bank</th><th scope="col">City</th><th scope="col">Account Number</th><th scope="col">Clearing code</th><th scope="col">SWIFT ID</th></tr>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr><td>AED</td><td>FIRST ABU DHABI BANK</td><td>DUBAI</td><td>AE580354022003182270014</td><td>N/A</td><td>NBADAEAA</td></tr>
+		<tr><td>AUD</td><td>WESTPAC BANKING CORPORATION</td><td>SYDNEY</td><td>WEL0001970</td><td></td><td>WPACAE2S</td></tr>
+		<tr><td>BHD</td><td>ARAB BANK PLC</td><td>MANAMA</td><td>BH05ARAB02002700610920</td><td></td><td>ARABBHBMMAN</td></tr>
+		<tr><td>CAD</td><td>TORONTO DOMINION BANK, THE</td><td>TORONTO</td><td>360012149351</td><td>CC000400732</td><td>TDOMCATTTOR</td></tr>
+
+	  </tbody>
+	</table>
+	<form id="ssiDataForm" action="/data_success">
+	  <button type="submit" class="btn btn-primary">Send</button>
+	</form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	<script>
+		$("#ssiDataForm").submit(function () {
+			alert("Data uploaded!");
+		});
+	</script>
+  </body>
+</html>
