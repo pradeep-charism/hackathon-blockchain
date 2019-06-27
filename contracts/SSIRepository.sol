@@ -2,8 +2,6 @@ pragma solidity ^0.5.8;
 
 contract SSIRepository {
 
-    string suffix = "->PUBLIC_KEY";
-
     struct Ssi {
         string currency;
         string correspondentBankName;
@@ -50,5 +48,6 @@ ssi.GetSsiFor.call("WELLS FARGO->PUBLIC_KEY:CREDIT SUISSE->PUBLIC_KEY:CHF");
 ssi.GetSsiFor.call("WELLS FARGO->PUBLIC_KEY:BANK OF CHINA->PUBLIC_KEY:CNH");
 
 s.Description.call();
+
 
 */

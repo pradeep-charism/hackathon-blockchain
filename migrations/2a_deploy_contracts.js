@@ -1,5 +1,4 @@
-var HelloWorld = artifacts.require("./BanksPublicKeysRepo.sol");
+var pk = artifacts.require("./BanksPublicKeysRepo.sol");
 module.exports = function(deployer) {
-
-    deployer.deploy(HelloWorld);
+    deployer.deploy(pk);
   };
